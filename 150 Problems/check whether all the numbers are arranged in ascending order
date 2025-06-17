@@ -1,0 +1,37 @@
+/*
+Problem to check whether all the numbers are arranged in ascending order
+Input-1 = 4567
+Output: Yes
+Input-2 = 4576
+Output: No
+*/
+
+import java.io.*;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int a = sc.nextInt();
+        int x,y;
+        boolean flag = true;
+        y = a%10;
+        a/=10;
+        while(a>0){
+            x = a%10;
+            if(x>=y){
+                flag = false;
+                break;
+            }
+            y=x;
+            a/=10;
+        }
+        if(flag == true){
+            System.out.println("Ascending order");
+        }
+        else{
+            System.out.println("Not in Ascending order");
+        }
+    }
+}
