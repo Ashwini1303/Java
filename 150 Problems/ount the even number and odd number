@@ -1,0 +1,30 @@
+/*
+write a program to count the even number and odd number
+Input : 361589
+even count:2
+odd count:4
+*/
+
+import java.io.*;
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int  a = sc.nextInt();
+        int even_count=0;
+        int odd_count =0;
+        while(a>0){
+            int digit = a%10;
+            if(digit%2==0){
+                even_count++;
+            }
+            else{
+                odd_count++;
+            }
+            a/=10;
+        }
+        System.out.println("even count:"+ even_count);
+        System.out.println("odd count:"+odd_count);
+    }
+}
