@@ -1,0 +1,37 @@
+/*
+Stepping Number or Not
+Neighbor number difference can be either -1 or 1
+ Input-1 = 12345
+ Output: Yes
+ Input-2 = 1245
+ output: No
+*/
+
+import java.io.*;
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int  a = sc.nextInt();
+        boolean flag = true;
+        while(a>9){
+            int digit1 = a%10;
+            a/=10;
+            int digit2 = a%10;
+            if(digit1 - digit2 != -1 && digit1 - digit2 != 1 ){
+                flag = false;
+                break;
+            }
+            else{
+                flag =true;
+            }
+        }
+        if(flag == true){
+            System.out.println("stepping Number");
+        }
+        else{
+            System.out.println("Not a stepping Number");
+        }
+    }
+}
