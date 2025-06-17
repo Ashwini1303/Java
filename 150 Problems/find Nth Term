@@ -1,0 +1,44 @@
+/*
+Given 3 numbers a, b, c (in increasing or decreasing order), generate a series using alternating differences b-a and c-b, and return the Nth term.
+Input: Four integers a, b, c, N (1,3,6,17)
+Output: 41
+*/
+
+int gap1 = input2 - input1;
+    int gap2 = input3 - input2;
+    if (input4 == 1) return input1;
+    if (input4 == 2) return input2;
+    if (input4 == 3) return input3;
+    int term = input3;
+    for (int i = 4; i <= input4; i++) {
+        if ((i - 4) % 2 == 0) {
+            term += gap1;
+        } else {
+            term += gap2;
+        }
+    }
+    return term;
+}
+}         
+
+
+/*int d =Math.abs(input1 - input2);
+int e =Math.abs(input2 - input3);
+int count = 3;
+boolean flag = true;
+int sum = input3;
+    while(count<input4){
+        if(flag){
+            sum+=d;
+        }
+        else{
+            sum+=e;
+        }
+        flag = !flag;
+        count++;
+    }
+    return sum;
+}
+}
+*/
+
