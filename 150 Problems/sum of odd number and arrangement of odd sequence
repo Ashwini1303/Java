@@ -1,0 +1,41 @@
+/*
+Program to print the sum of odd numbers and arrangement of odd sequence
+I/P: 361589
+sum = 18
+order = 315968 
+*/
+
+import java.io.*;
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number:");
+        int  a = sc.nextInt();
+        int even_value =0,sum=0;
+        int odd_value =0,reversed = 0;
+        while(a>0){
+            int digit = a%10;
+            if(digit%2==0){
+                even_value = (even_value*10)+digit;
+            }
+            else{
+                odd_value = (odd_value*10)+digit;
+            }
+            a/=10;
+        }
+        while(odd_value>0){
+            int digit1 = odd_value%10;
+            sum+=digit1;
+            reversed = (reversed*10)+digit1;
+            odd_value/=10;
+        }
+        while(even_value>0){
+            int digit2 = even_value%10;
+            reversed = (reversed*10)+digit2;
+            even_value/=10;
+        }
+        System.out.println("arrangement of odd sequence:"+reversed);
+        System.out.println("Sum of odd values:"+ sum);
+    }
+}
