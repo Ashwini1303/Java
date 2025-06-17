@@ -1,0 +1,34 @@
+/* 
+2 digit reduced subtracted form
+Ex. 6928
+6-9= 3
+9-2=7
+2- 8=6
+O/p: 376
+Not 2 digit num
+Again perform RS
+3-7=4
+7-6=1
+O/P:41 
+*/
+
+import java.io.*;
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Enter the number:");
+       int num = sc.nextInt();
+       String str = String.valueOf(num);
+       String cal_value = "";
+       while(str.length()>2){
+           cal_value = "";
+           for(int i=0;i<str.length()-1;i++){
+               int diff = Math.abs(str.charAt(i) - str.charAt(i+1));
+               cal_value +=diff; 
+           }
+           str = cal_value;
+       }
+       System.out.println("output:"+cal_value);
+    }
+}
