@@ -1,0 +1,35 @@
+/*
+Find result after alternate add_sub on N 
+Input : 6,1
+6-5+4-3+2-1 
+Output: 3
+*/
+
+class demo{
+public int Addsub(int input1, int input2){
+int sum = input1;
+        if(input2 ==1){
+            while(input1!=0){
+                if(input1%2==0){
+                    sum = sum -(input1 -1);
+                }
+                else{
+                    sum = sum +(input1 -1);
+                }
+                input1--;
+            }
+        }
+        else{
+            while(input1!=0){
+                if(input1%2==0){
+                    sum = sum +(input1 -1);
+                }
+                else{
+                    sum = sum-(input1 -1);
+                }
+                input1--;
+            }
+        }
+        return sum;
+    }
+}
