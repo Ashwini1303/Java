@@ -1,0 +1,49 @@
+/*
+A number is called stable if all of its digits occur the same number of times, otherwise it is unstable.
+Given 5 integers, return the difference between the sum of all stable numbers and the sum of all unstable numbers.
+
+Input: 455, 257, 3300, 110, 303
+Output: -3911
+*/
+
+
+import java.io.*;
+import java.util.*;
+class sample{
+public static finddifference(int input1,int input2,int input3,int input3,int input4,int input5){
+
+int arr[] = new int[]{input1,input2,input3,input4,input5};
+        int stable = 0;
+        int unstable = 0;
+        for(int i=0;i<arr.length;i++){
+            int value = arr[i];
+            int temp = value;
+            int count[] = new int[10];
+            while(value > 0){
+                int digit = value%10;
+                count[digit]++;
+                value/=10;
+            }
+            int freq = 0;
+            boolean isstable = true;
+            for(int j=0;j<count.length;j++){
+                if(count[j] !=0){
+                    if(freq==0){
+                        freq = count[j];
+                    }
+                    else if(count[j]!=freq){
+                        isstable = false;
+                         break;
+                    }
+                }
+            }
+            if(isstable == true){
+                stable += temp;
+            }
+            else{
+                unstable +=temp;
+            }
+        }
+        return stable - unstable;
+    }
+}
