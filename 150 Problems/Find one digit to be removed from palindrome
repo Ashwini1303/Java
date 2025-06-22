@@ -1,0 +1,56 @@
+/*
+Given an integer input1, remove only one digit (at most) to make it a palindrome.
+If already a palindrome, return -1.
+Return the digit that needs to be removed.
+
+Input:  12332
+Output: 1
+*/
+
+
+import java.io.*;
+import java.util.*;
+class sample{
+public static int digitremove_palindrome(int input1){
+
+int length = String.valueOf(input1).length();
+        int digit[] = new int[length];
+        for (int i = 0; i < length; i++) {
+            digit[i] = input1 % 10;
+            input1 /= 10;
+        }
+        for (int i = 0; i < length / 2; i++) {
+            int temp = digit[i];
+            digit[i] = digit[length - 1 - i];
+            digit[length - 1 - i] = temp;
+        }
+
+        int start = 0, end = length - 1;
+
+        while (start < end) {
+            if (digit[start] != digit[end]) {
+                if (isPalindrome(digit, start + 1, end)) {
+                    return digit[start]; 
+                } else if (isPalindrome(digit, start, end - 1)) {
+                    return digit[end]; 
+                } else {
+                    return -1; 
+                }
+            }
+            start++;
+            end--;
+        }
+
+        return -1; 
+    }
+    private static boolean isPalindrome(int[] arr, int start, int end) {
+        while (start < end) {
+            if (arr[start] != arr[end]) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+}
