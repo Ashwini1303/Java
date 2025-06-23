@@ -1,0 +1,45 @@
+/*
+Re-arranged array by small – largest combination
+Input: [1, 3, 5, 2, 8, 7, 4]
+Output:[1, 8, 2, 7, 3, 5, 4]
+*/
+
+import java.util.Arrays;
+import java.io.*;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of an array: ");
+        int size = sc.nextInt();
+        int a[]=new int[size];
+        for(int i=0;i<size;i++){
+            a[i] = sc.nextInt();
+        }
+        System.out.println("Input Array:"+Arrays.toString(a));
+        for(int i=0;i<size;i++){
+            for(int j=i+1;j<size;j++){
+                if(a[i]>a[j]){
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        System.out.println("sorted array:"+Arrays.toString(a));
+        int result[] = new int[size];
+        int start = 0;
+        int end = size -1;
+        int index =0;
+        while(start<= end){
+            if(index<size){
+                result[index++] = a[start++];
+            }
+            if(index<size){
+                result[index++] = a[end--];
+            }
+        }
+        System.out.println("Final output:"+ Arrays.toString(result));
+    }
+}
